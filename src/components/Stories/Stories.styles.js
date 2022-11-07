@@ -6,7 +6,7 @@ export const StoriesStyles = styled.main`
   justify-content: space-around;
 
   .swiper {
-    padding: 3em 0 0 0;
+    padding: 3em 0 5em 0;
     max-width: 90em;
     height: fit-content;
   }
@@ -40,6 +40,6 @@ export const StoriesStyles = styled.main`
     letter-spacing: 0.02em;
     color: var(--white);
     bottom: 0px;
-    transform: translateY(-10rem);
+    transform: translateY(-13rem);
   }
 `;

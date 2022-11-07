@@ -8,11 +8,19 @@ function App() {
   //states to pass storyID for retrieval of information on the story in focus, as well as set chapters
   const [storyID, setStoryID] = useState(null);
   const [activeChapters, setActiveChapters] = useState(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <React.Fragment>
       <StoryContext.Provider
-        value={{ storyID, setStoryID, activeChapters, setActiveChapters }}
+        value={{
+          storyID,
+          setStoryID,
+          activeChapters,
+          setActiveChapters,
+          menuOpen,
+          setMenuOpen,
+        }}
       >
         <Header />
         <Stories stories={getStories} />

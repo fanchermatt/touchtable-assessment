@@ -9,7 +9,7 @@ export const NavigationStyles = styled.nav`
     width: 7.5em;
     height: 7.5em;
     background: var(--nav-grey-gradient);
-    border-radius: 7.5em;
+    border-radius: 50%;
     border: 0.5em solid var(--nav-grey);
     display: flex;
     align-items: center;
@@ -18,9 +18,19 @@ export const NavigationStyles = styled.nav`
     justify-content: space-around;
 
     box-shadow: 0px 10px 45px 5px rgba(26, 26, 26, 0.25);
+    transition: 0.1s;
+  }
+  .innerContainerHidden {
+    width: 7.5em;
+    height: 7.5em;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-top: 0.75em;
   }
   .container {
-    padding-right: 5em;
+    padding-right: 7.5em;
   }
 
   .container img {

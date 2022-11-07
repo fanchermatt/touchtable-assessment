@@ -1,26 +1,33 @@
 import List from "../../images/icon-list.png";
+import Close from "../../images/icon-x.png";
 import { StoryContext } from "../StoryContext/StoryContext";
 import { useContext } from "react";
 import { ChapterMenuStyles } from "./ChapterMenu.styles";
 
 const ChapterMenu = () => {
-  const { activeChapters } = useContext(StoryContext);
+  const { activeChapters, menuOpen, setMenuOpen } = useContext(StoryContext);
+
+  //toggle for menu open
+  const handleMenu = (e) => {
+    setMenuOpen((prev) => !prev);
+    e.preventDefault();
+  };
 
   const menu = () => {
     if (activeChapters) {
       return (
-        <div className='menu'>
-          <button className='top'>
-            <img alt='' src={List} />
+        <div className={menuOpen ? "menu active" : "menu"}>
+          <button className='top' onClick={(e) => handleMenu(e)}>
+            <img alt='' src={menuOpen ? Close : List} />
           </button>
           {Object.values(activeChapters).map((chapter, index) => (
             <li key={index} style={{ "--i": index }}>
               <button
                 onClick={(e) =>
-                  alert("Playing Chapter " + index + " - " + chapter)
+                  alert("Playing Chapter " + (index + 1) + " - " + chapter)
                 }
               >
-                Chapter {index}
+                Chapter {index + 1}
               </button>
             </li>
           ))}

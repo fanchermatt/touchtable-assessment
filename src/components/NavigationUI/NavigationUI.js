@@ -13,7 +13,8 @@ import { StoryContext } from "../StoryContext/StoryContext";
 const NavigationUI = () => {
   const swiper = useSwiper();
   //bring in storyID state to set on swiper slide next
-  const { storyID, setStoryID, setActiveChapters } = useContext(StoryContext);
+  const { storyID, setStoryID, setActiveChapters, menuOpen } =
+    useContext(StoryContext);
 
   //function to set storyID state when needed
   const getStoryContext = async () => {
@@ -64,26 +65,30 @@ const NavigationUI = () => {
     <React.Fragment>
       <NavigationStyles>
         <div className='container'>
-          <div className='innerContainer'>
+          <div className={menuOpen ? "innerContainerHidden" : "innerContainer"}>
             <ChapterMenu></ChapterMenu>
-            {/* breaks to get to next row */}
-            <div className='break'></div>
-            {/*on click, slide prev and set story id for later use */}
-            <button className='middle arrow' onClick={slidePrev}>
-              <img alt='' src={LeftArrow} />
-            </button>
-            <button className='middle check'>
-              <img alt='' src={Checkmark} />
-            </button>
-            {/*on click, slide next and set story id for later use */}
-            <button className='middle arrow' onClick={slideNext}>
-              <img alt='' src={RightArrow} />
-            </button>
-            {/* breaks to get to next row */}
-            <div className='break'></div>
-            <button className='bottom'>
-              <img alt='' src={Ellipse} />
-            </button>
+            {/*if menuOpen is true, remove menu so chapter menu can appear in place*/}
+            {menuOpen ? null : (
+              <>
+                <div className='break'></div>
+                <button className='middle arrow' onClick={slidePrev}>
+                  <img alt='' src={LeftArrow} />
+                </button>
+                <button
+                  className='middle check'
+                  onClick={(e) => alert("playing story width id: " + storyID)}
+                >
+                  <img alt='' src={Checkmark} />
+                </button>
+                <button className='middle arrow' onClick={slideNext}>
+                  <img alt='' src={RightArrow} />
+                </button>
+                <div className='break'></div>
+                <button className='bottom'>
+                  <img alt='' src={Ellipse} />
+                </button>
+              </>
+            )}
           </div>
         </div>
       </NavigationStyles>

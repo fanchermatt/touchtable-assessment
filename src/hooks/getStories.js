@@ -38,7 +38,6 @@ export const getStories = {
       6: "Story 3, Chapter 6",
       7: "Story 3, Chapter 7",
       8: "Story 3, Chapter 8",
-      9: "Story 3, Chapter 9",
     },
   },
 
