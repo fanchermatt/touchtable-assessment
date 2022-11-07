@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./components/Header/Header";
+import Stories from "./components/Stories/Stories";
+import { getStories } from "./hooks/getStories";
+import { StoryContext } from "./components/StoryContext/StoryContext";
+import React, { useState } from "react";
 
 function App() {
+  //state to pass storyID for retrieval of information on the story in focus
+  const [storyID, setStoryID] = useState(null);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <StoryContext.Provider value={{ storyID, setStoryID }}>
+        <Header />
+        <Stories stories={getStories} />
+      </StoryContext.Provider>
+    </React.Fragment>
   );
 }
 
