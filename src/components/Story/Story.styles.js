@@ -4,10 +4,10 @@ export const StoryStyles = styled.div`
   display: flex;
 
   .imgPlaceholder {
-    width: 15em;
-    height: 15em;
+    width: 10em;
+    height: 10em;
     background: var(--fpo-grey);
-    border-radius: 15em;
+    border-radius: 10em;
     margin: 0 auto;
     margin-bottom: 2em;
     margin-top: 2em;
@@ -26,5 +26,8 @@ export const StoryStyles = styled.div`
     font-size: 2em;
     font-weight: 700;
     color: var(--main-bg);
+  }
+  .hidden {
+    display: none;
   }
 `;

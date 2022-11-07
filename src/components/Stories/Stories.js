@@ -9,8 +9,7 @@ import NavigationUI from "../NavigationUI/NavigationUI";
 
 const Stories = (stories) => {
   /* stories is passed as an object, transform it back to an array in order to use map later */
-  const data = Object.values(stories.stories[0]);
-
+  const data = Object.values(stories.stories);
   return (
     <StoriesStyles>
       <Swiper
@@ -27,8 +26,8 @@ const Stories = (stories) => {
       >
         {/* Map through and create story for each story given*/}
         {data.map((story) => (
-          <SwiperSlide>
-            <Story key={story.id} data={story} />
+          <SwiperSlide key={story.id}>
+            <Story data={story} />
           </SwiperSlide>
         ))}
         {/* Call NavigationUI from inside swiper to pass context down to useSwiper to be able to navigate*/}

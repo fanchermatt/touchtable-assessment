@@ -5,12 +5,15 @@ import { StoryContext } from "./components/StoryContext/StoryContext";
 import React, { useState } from "react";
 
 function App() {
-  //state to pass storyID for retrieval of information on the story in focus
+  //states to pass storyID for retrieval of information on the story in focus, as well as set chapters
   const [storyID, setStoryID] = useState(null);
+  const [activeChapters, setActiveChapters] = useState(null);
 
   return (
     <React.Fragment>
-      <StoryContext.Provider value={{ storyID, setStoryID }}>
+      <StoryContext.Provider
+        value={{ storyID, setStoryID, activeChapters, setActiveChapters }}
+      >
         <Header />
         <Stories stories={getStories} />
       </StoryContext.Provider>
